@@ -9,6 +9,21 @@
 
 <body>
 
+    <script>
+        let getComputerChoice = () => {
+            let randomNum = Math.random();
+            let choice = null;
+            if (randomNum < .66 && randomNum > .33) {
+                choice = "paper";
+            } else if (randomNum > .66) {
+                choice = "rock";
+            } else {
+                choice = "scissors";
+            }
+            return choice
+        }
+    </script>
+
 </body>
 
 </html>

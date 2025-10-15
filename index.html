@@ -22,6 +22,27 @@
             }
             return choice
         }
+
+        let getHumanChoice = () => {
+            let userInput = prompt("Enter paper (1), rock (2), or scissors (3).");
+            let choice = null;
+            if (userInput === "1") {
+                choice = "paper";
+            } else if (userInput === "2") {
+                choice = "rock";
+            } else if (userInput === "3") {
+                choice = "scissors"
+            }
+            return choice
+        }
+        // getHumanChoice
+        // Get input from user
+        // if user input is 0 return paper
+        // else if 1 return rock
+        // else if return scissors
+        // return choice
+        console.log(getHumanChoice());
+        console.log(getComputerChoice());
     </script>
 
 </body>

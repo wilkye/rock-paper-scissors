@@ -10,6 +10,9 @@
 <body>
 
     <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
         let getComputerChoice = () => {
             let randomNum = Math.random();
             let choice = null;
@@ -35,14 +38,36 @@
             }
             return choice
         }
-        // getHumanChoice
-        // Get input from user
-        // if user input is 0 return paper
-        // else if 1 return rock
-        // else if return scissors
-        // return choice
-        console.log(getHumanChoice());
-        console.log(getComputerChoice());
+
+        let playRound = (human, computer) => {
+            if (human === "paper" && computer === "rock") {
+                humanScore += 1;
+                return "Human wins! Paper beats rock!";
+            } else if (human === "rock" && computer === "scissors") {
+                humanScore += 1;
+                return "Human wins! Rock beats scissors!";
+            } else if (human === "scissors" && computer === "paper") {
+                humanScore += 1;
+                return "Human wins! Scissors beat paper";
+            } else if (computer === "paper" && human === "rock") {
+                computerScore += 1;
+                return "Computer wins! Paper beats rock!";
+            } else if (computer === "rock" && human === "scissors") {
+                computerScore += 1;
+                return "Computer wins! Rock beats scissors!";
+            } else if (computer === "scissors" && human === "paper") {
+                computerScore += 1;
+                return "Computer wins! Scissors beat paper";
+            } else {
+                return "It's a draw!";
+            }
+        }
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        console.log(playRound(humanSelection, computerSelection));
+        console.log(`Computer: ${computerScore} | Human: ${humanScore}`)
     </script>
 
 </body>

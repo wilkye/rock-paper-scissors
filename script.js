@@ -56,15 +56,12 @@ const winTag = document.getElementById("winText");
 rockBtn.addEventListener("click", (e) => {
     const comp = getComputerChoice();
     winTag.textContent = playRound("rock", comp);
-    console.log(e.target.innerText);
 });
 scissorsBtn.addEventListener("click", (e) => {
     const comp = getComputerChoice();
     winTag.textContent = playRound("scissors", comp);
-    console.log(e.target.innerText);
 });
 paperBtn.addEventListener("click", (e) => {
     const comp = getComputerChoice();
     winTag.textContent = playRound("paper", comp);
-    console.log(e.target.innerText);
 });

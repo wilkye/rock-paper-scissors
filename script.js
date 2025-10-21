@@ -1,0 +1,85 @@
+let humanScore = 0;
+let computerScore = 0;
+
+let getComputerChoice = () => {
+    let randomNum = Math.random();
+    let choice = null;
+    if (randomNum < .66 && randomNum > .33) {
+        choice = "paper";
+    } else if (randomNum > .66) {
+        choice = "rock";
+    } else {
+        choice = "scissors";
+    }
+    return choice
+}
+
+let getHumanChoice = () => {
+    let userInput = prompt("Enter paper (1), rock (2), or scissors (3).");
+    let choice = null;
+    if (userInput === "1") {
+        choice = "paper";
+    } else if (userInput === "2") {
+        choice = "rock";
+    } else if (userInput === "3") {
+        choice = "scissors"
+    }
+    return choice
+}
+
+let playRound = (human, computer) => {
+    if (human === "paper" && computer === "rock") {
+        humanScore += 1;
+        return "Human wins! Paper beats rock!";
+    } else if (human === "rock" && computer === "scissors") {
+        humanScore += 1;
+        return "Human wins! Rock beats scissors!";
+    } else if (human === "scissors" && computer === "paper") {
+        humanScore += 1;
+        return "Human wins! Scissors beat paper";
+    } else if (computer === "paper" && human === "rock") {
+        computerScore += 1;
+        return "Computer wins! Paper beats rock!";
+    } else if (computer === "rock" && human === "scissors") {
+        computerScore += 1;
+        return "Computer wins! Rock beats scissors!";
+    } else if (computer === "scissors" && human === "paper") {
+        computerScore += 1;
+        return "Computer wins! Scissors beat paper";
+    } else {
+        return "It's a draw!";
+    }
+}
+
+const rockBtn = document.getElementById("rock");
+const scissorsBtn = document.getElementById("scissors");
+const paperBtn = document.getElementById("paper");
+
+rockBtn.addEventListener("click", (e) => {
+    console.log(e.target.innerText);
+});
+scissorsBtn.addEventListener("click", (e) => {
+    console.log(e.target.innerText);
+});
+paperBtn.addEventListener("click", (e) => {
+    console.log(e.target.innerText);
+});
+
+// let playGame = () => {
+//     for (let i = 0; i < 5; i++) {
+//         const humanSelection = getHumanChoice();
+//         const computerSelection = getComputerChoice();
+//         console.log(playRound(humanSelection, computerSelection));
+//         console.log(`Computer: ${computerScore} | Human: ${humanScore}`)
+//     }
+
+//     if (computerScore > humanScore) {
+//         console.log("Computer Wins!");
+//     } else if (computerScore < humanScore) {
+//         console.log("Human Wins!");
+//     } else {
+//         console.log("It was a tie!");
+//     }
+// }
+
+// playGame();

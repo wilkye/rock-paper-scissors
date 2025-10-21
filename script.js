@@ -1,6 +1,22 @@
 const score = document.getElementById("score");
+const winTag = document.getElementById("winText");
 let humanScore = 0;
 let computerScore = 0;
+
+let resetGame = () => {
+    const sect = document.getElementById("below");
+    const btn = document.createElement("button");
+
+    btn.textContent = "Restart?";
+    sect.appendChild(btn);
+    btn.addEventListener("click", () => {
+        humanScore = 0;
+        computerScore = 0;
+        btn.remove();
+        winTag.textContent = "Choose your weapon to start...";
+        score.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+    });
+}
 
 let updateScore = (code) => {
     if (code === 1) {
@@ -8,7 +24,17 @@ let updateScore = (code) => {
     } else {
         computerScore++;
     }
-    score.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+    if (humanScore === 5) {
+        winTag.textContent = "You have won!";
+        score.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+        resetGame();
+    } else if (computerScore === 5) {
+        winTag.textContent = "The Clanker won...";
+        score.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+        resetGame();
+    } else {
+        score.textContent = `Human: ${humanScore} | Computer: ${computerScore}`;
+    }
 }
 
 let getComputerChoice = () => {
@@ -51,7 +77,6 @@ let playRound = (human, computer) => {
 const rockBtn = document.getElementById("rock");
 const scissorsBtn = document.getElementById("scissors");
 const paperBtn = document.getElementById("paper");
-const winTag = document.getElementById("winText");
 
 rockBtn.addEventListener("click", (e) => {
     const comp = getComputerChoice();
